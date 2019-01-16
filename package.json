@@ -1,0 +1,57 @@
+{
+  "name": "screen-reader-route-manager",
+  "version": "0.0.0-development",
+  "description": "Route management for making sure screen readers announce new pages when changing the URL without a page load",
+  "keywords": [
+    "accessibility",
+    "routing",
+    "spa"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
+  "repository": "https://github.com/kenneth-gray/screen-reader-route-manager",
+  "author": "Kenny Gray <kenneth-gray@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "build": "rimraf dist && babel index.ts -d lib --extensions .ts",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-core": "^6.26.3",
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^15.13.3",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {"type": "docs", "scope": "README", "release": "patch"},
+        {"type": "build", "release": "patch"},
+        {"type": "chore", "release": "patch"},
+        {"type": "refactor", "release": "patch"}
+      ]
+    }
+  }
+}
