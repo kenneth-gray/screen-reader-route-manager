@@ -18,7 +18,19 @@ One of the issues screen reader users face when they access Single Page Apps (SP
 - VoiceOver + Chrome - macOS
 - Talkback + Chrome - Android
 
-## Example
+## Usage
+
+```javascript
+import routeManager from 'screen-reader-route-manager';
+
+// To be called before the URL is changed.
+routeManager.beforeRouteChange();
+
+// To be called after the URL is changed
+routeManager.afterRouteChange();
+```
+
+`afterRouteChange` won't execute anything if `beforeRouteChange` hasn't been called. This is to prevent unwanted focus management forcing the user to the top of the page.
 
 [An example codesandbox](https://codesandbox.io/s/xl677vzrlw)
 
