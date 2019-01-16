@@ -34,7 +34,7 @@ function initialise() {
   // This won't trigger for VoiceOver on iOS. Using a timeout to clear the
   // content had adverse affects on VoiceOver on iOS.
   const removeAndHideContent = () => {
-    topOfPage = '';
+    topOfPage.textContent = '';
     topOfPage.setAttribute('aria-hidden', 'true');
   };
   topOfPage.addEventListener('blur', removeAndHideContent);
