@@ -17,6 +17,8 @@ One of the issues screen reader users face when they access Single Page Apps (SP
 - VoiceOver + Safari - macOS
 - VoiceOver + Chrome - macOS
 - Talkback + Chrome - Android
+- JAWS + IE11 - Windows
+- JAWS + Chrome - Windows
 
 ## Usage
 
