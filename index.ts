@@ -44,7 +44,7 @@ function initialise() {
   const body = document.querySelector('body');
   if (body) {
     // Add to top of page.
-    body.prepend(topOfPage);
+    body.insertBefore(topOfPage, body.firstChild);
   }
 
   return;
