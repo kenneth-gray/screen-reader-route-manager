@@ -24,9 +24,12 @@ function beforeRouteChange() {
   routeChangeStarted = true;
 }
 
+const visuallyHiddenStyles =
+  'border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; white-space: nowrap;';
+
 function initialise() {
   topOfPage = document.createElement('span');
-  topOfPage.setAttribute('class', 'visually-hidden');
+  topOfPage.setAttribute('style', visuallyHiddenStyles);
   // Allow JS to focus element.
   topOfPage.setAttribute('tabindex', '-1');
 
@@ -59,7 +62,7 @@ function afterRouteChange() {
     // that the link is not longer focused allowing the following:
     // - NVDA won't read out "current page" if aria-current="page"
     //   attribute is being used on the link.
-    // - TalkBack will acutally focus the topOfPage element.
+    // - TalkBack will actually focus the topOfPage element.
     setTimeout(() => {
       topOfPage.focus();
       routeChangeStarted = false;
