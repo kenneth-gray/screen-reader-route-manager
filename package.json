@@ -8,6 +8,7 @@
     "spa"
   ],
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "/lib"
   ],
@@ -16,7 +17,9 @@
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "build": "rimraf dist && babel index.ts -d lib --extensions .ts",
+    "build": "rimraf lib && npm run build-js && npm run build-types",
+    "build-js": "babel index.ts -d lib --extensions .ts",
+    "build-types": "tsc -d --emitDeclarationOnly --outDir lib index.ts",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
