@@ -9,11 +9,14 @@ const routeManager = {
 export default routeManager;
 
 function beforeRouteChange() {
-  // This section is needed for VoiceOver on iOS.
-  // Otherwise focusing a non standard element doesn't work.
-  // This is needed for NVDA to prevent "current page" from being
-  // read out.
-  if (document.activeElement) {
+  // Blurring on JAWS + IE11 leads to unexpected elements being announced
+  // @ts-ignore
+  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+  if (document.activeElement && !isIE11) {
+    // This section is needed for VoiceOver on iOS.
+    // Otherwise focusing a non standard element doesn't work.
+    // This is needed for NVDA to prevent "current page" from being
+    // read out.
     (document.activeElement as HTMLElement).blur();
   }
 
